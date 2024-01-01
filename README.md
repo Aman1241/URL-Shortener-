@@ -1,8 +1,11 @@
 # URL-Shortener-
-import pyshorteners
-long_url = input("Enter the URL to be shorten: ")
+import secrets
+import string
 
-type_tiny = pyshorteners.Shortener()
-short_url = type_tiny.tinyurl.short(long_url)
+def generate_password(length=10):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(secrets.choice(characters) for i in range(length))
+    return password
 
-print(f"The shortened URL: {short_url}")
+random_password = generate_password()
+print(f"Random password: {random_password}")
